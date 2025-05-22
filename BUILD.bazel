@@ -160,6 +160,7 @@ cc_library(
         ":watchos_arm64_32": COMMON_SRCS + MACH_SRCS + MACH_ARM_SRCS,
         ":tvos_x86_64": COMMON_SRCS + X86_SRCS + MACH_SRCS + MACH_X86_SRCS,
         ":tvos_arm64": COMMON_SRCS + MACH_SRCS + MACH_ARM_SRCS,
+        ":visionos_arm64": COMMON_SRCS + MACH_SRCS + MACH_ARM_SRCS,
         ":emscripten_wasm": COMMON_SRCS + EMSCRIPTEN_SRCS,
     }),
     copts = select({
@@ -359,7 +360,6 @@ config_setting(
 config_setting(
     name = "ios_arm64",
     values = {
-        "apple_platform_type": "ios",
         "cpu": "ios_arm64",
     },
 )
@@ -449,6 +449,14 @@ config_setting(
     values = {
         "apple_platform_type": "tvos",
         "cpu": "tvos_x86_64",
+    },
+)
+
+config_setting(
+    name = "visionos_arm64",
+    values = {
+        "apple_platform_type": "visionos",
+        "cpu": "visionos_arm64",
     },
 )
 
